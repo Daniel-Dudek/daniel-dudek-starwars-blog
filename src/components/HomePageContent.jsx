@@ -1,13 +1,25 @@
-const HomePageContent = () => {
-    return (
-        <ul>
-            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, recusandae perferendis. Voluptas vero rerum dignissimos, magni neque non amet? Deserunt reiciendis repellendus excepturi doloremque nemo voluptatibus dolore provident distinctio asperiores!</li>
-            <li>Sapiente magnam id veniam placeat modi, iusto ipsam aut voluptatibus sequi cum ratione doloribus officia numquam quos at quae eveniet expedita aliquid libero! Officia dolores facere ex rerum nesciunt unde.</li>
-            <li>Totam ea porro veniam maxime quam nesciunt quibusdam ipsa sunt est voluptate. Quos natus nisi ad voluptatum totam quia dolorum eum minus modi, ut voluptas magnam blanditiis id repellat ducimus?</li>
-            <li>Iste amet laborum debitis assumenda reprehenderit consectetur neque blanditiis modi esse aspernatur fugiat, qui molestiae praesentium inventore magni, voluptates ut unde quasi optio atque provident eum itaque saepe repellendus? Error.</li>
-            <li>Voluptatibus reprehenderit vero, eos, soluta exercitationem dolores aliquam illo quo earum nesciunt, nostrum doloremque consequuntur corporis. Ipsa architecto earum, eius dicta commodi saepe reiciendis. Dolorum at quia tempora explicabo consequatur!</li>
-        </ul>
-    )
-}
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
-export default HomePageContent
+const HomePageContent = () => {
+  return (
+    <>
+      <div className="bg-light rounded-3 mx-5 my-4">
+        <Container className="py-5 text-start">
+          <h1>A Warm Welcome!</h1>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique
+            earum maiores eveniet corrupti qui! At voluptatum, animi illo atque
+            quisquam odio amet tenetur pariatur! Temporibus omnis aliquam
+            voluptate recusandae maxime.
+          </p>
+          <Button className="fw-bold" variant="primary">
+            Call to action!
+          </Button>
+        </Container>
+      </div>
+    </>
+  );
+};
+
+export default HomePageContent;
