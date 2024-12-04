@@ -1,12 +1,12 @@
-import HomePageContent from "../components/HomePageContent";
-import HomePageFooter from "../components/HomePageFooter";
 import HomePageHeader from "../components/HomePageHeader";
+import TodoList from "../components/TodoList";
+import HomePageFooter from "../components/HomePageFooter";
 
 const HomePage = () => {
   return (
     <>
       <HomePageHeader />
-      <HomePageContent />
+      <TodoList />
       <HomePageFooter />
     </>
   );
