@@ -1,10 +1,15 @@
+import { Route, Routes } from "react-router";
+import { routeConfig } from "./routes/routeConfig";
 import "./App.css";
-import HomePage from "./pages/HomePage";
-
-// Personalizar nuestro boilerplate según nos nazca :D
 
 const App = () => {
-  return <HomePage />;
+  return (
+    <Routes>
+      {routeConfig.map((route) => (
+        <Route path={route.path} element={route.element} />
+      ))}
+    </Routes>
+  );
 };
 
 export default App;

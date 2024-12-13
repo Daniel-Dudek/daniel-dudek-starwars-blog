@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router";
 
 const HomePageHeader = () => {
   return (
@@ -11,14 +12,30 @@ const HomePageHeader = () => {
       className="bg-body-tertiary"
     >
       <Container>
-        <Navbar.Brand href="#home">Start Bootstrap</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/" end>
+          <img
+            alt=""
+            src="logo192.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">About</Nav.Link>
-            <Nav.Link href="#link">Services</Nav.Link>
-            <Nav.Link href="#link">Contact</Nav.Link>
+            <Nav.Link as={NavLink} to="/" end>
+              Home
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/about" end>
+              About
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/services" end>
+              Services
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/contact" end>
+              Contact
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
