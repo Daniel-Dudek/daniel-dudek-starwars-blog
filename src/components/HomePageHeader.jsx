@@ -15,7 +15,7 @@ const HomePageHeader = () => {
         <Navbar.Brand as={NavLink} to="/" end>
           <img
             alt=""
-            src="logo192.png"
+            src="/logo192.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
