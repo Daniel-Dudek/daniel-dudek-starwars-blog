@@ -1,9 +1,11 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import { useContext } from "react";
+import { FavoritesContext } from "../components/context/Favorites";
 import { NavLink } from "react-router";
+import { Badge, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 const HomePageHeader = () => {
+  const { favorites, deleteFavorite } = useContext(FavoritesContext);
+
   return (
     <Navbar
       bg="dark"
@@ -36,6 +38,35 @@ const HomePageHeader = () => {
             <Nav.Link as={NavLink} to="/contact" end>
               Contact
             </Nav.Link>
+            {favorites.length > 0 && (
+              <NavDropdown
+                title="Favorites"
+                id="favorites-dropdown"
+                align="end"
+              >
+                {favorites.map((favorite) => (
+                  <NavDropdown.Item
+                    key={`${favorite.type}${favorite.id}`}
+                    className="d-flex justify-content-between align-items-center"
+                  >
+                    <NavLink
+                      to={`/star-wars/${favorite.type}/${favorite.id}`}
+                      className="text-decoration-none"
+                    >
+                      {favorite.name}
+                    </NavLink>
+                    <Badge
+                      bg="danger"
+                      className="ms-2"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => deleteFavorite(favorite.id, favorite.type)}
+                    >
+                      X
+                    </Badge>
+                  </NavDropdown.Item>
+                ))}
+              </NavDropdown>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

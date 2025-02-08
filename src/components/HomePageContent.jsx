@@ -6,7 +6,7 @@ const HomePageContent = () => {
   const navigate = useNavigate();
 
   const handleButtonNavigate = () => {
-    navigate("/agendas");
+    navigate("/star-wars");
   };
 
   return (
@@ -25,7 +25,7 @@ const HomePageContent = () => {
             variant="primary"
             onClick={handleButtonNavigate}
           >
-            See agendas!
+            See Star Wars!
           </Button>
         </Container>
       </div>

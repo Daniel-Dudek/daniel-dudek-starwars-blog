@@ -1,124 +1,27 @@
 // Base URL for the API endpoints
-const baseUrl = "https://playground.4geeks.com/contact";
+export const baseUrl = "https://www.swapi.tech/api";
 
-// Specific base URL for agendas
-const agendasBaseUrl = `${baseUrl}/agendas`;
+// Specific base URL for all resources
+export const films = "/films/";
+export const characters = "/people/";
+export const planets = "/planets/";
+export const species = "/species/";
+export const starships = "/starships/";
+export const vehicles = "/vehicles/";
 
-// Get agendas
-export const getAgendas = () => {
-  return fetch(`${agendasBaseUrl}`, {
-    method: "GET",
-  })
+// Function to get resources from star wars API
+export const fetchWrapper = (input, init) => {
+  return fetch(input, init)
     .then((response) => {
-      if (!response.ok)
-        throw new Error(`Error obtaining agendas: ${response.status}`);
-      return response.json();
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText || response.status);
     })
-    .catch((error) => console.error(`Error fetching agendas: `, error));
-};
-
-// Get single agenda
-export const getSingleAgenda = (slug) => {
-  return fetch(`${agendasBaseUrl}/${slug}`, {
-    method: "GET",
-  })
-    .then((response) => {
-      if (!response.ok)
-        throw new Error(`Error obtaining the agenda: ${response.status}`);
-      return response.json();
+    .then((data) => {
+      return data;
     })
-    .catch((error) => console.error(`Error fetching ${slug} agenda: `, error));
-};
-
-// Create agenda
-export const createAgenda = (slug) => {
-  return fetch(`${agendasBaseUrl}/${slug}`, {
-    method: "POST",
-  })
-    .then((response) => {
-      if (!response.ok)
-        throw new Error(`Error creating the agenda: ${response.status}`);
-      return response.json();
-    })
-    .catch((error) =>
-      console.error(`Error fetching create ${slug} agenda: `, error),
-    );
-};
-
-// Delete Agenda
-export const deleteAgenda = (slug) => {
-  return fetch(`${agendasBaseUrl}/${slug}`, {
-    method: "DELETE",
-  })
-    .then((response) => {
-      if (!response.ok)
-        throw new Error(`Error deleting the agenda: ${response.status}`);
-      return response.json();
-    })
-    .catch((error) =>
-      console.error(`Error fetching delete ${slug} agenda: `, error),
-    );
-};
-
-// Get agenda contacts
-export const getAgendaContacts = (slug) => {
-  return fetch(`${agendasBaseUrl}/${slug}/contacts`, {
-    method: "GET",
-  })
-    .then((response) => {
-      if (!response.ok)
-        throw new Error(
-          `Error obtaining the agenda contacts: ${response.status}`,
-        );
-      return response.json();
-    })
-    .catch((error) =>
-      console.error(`Error fetching ${slug} agenda contacts: `, error),
-    );
-};
-
-// Create agenda contact
-export const createAgendaContact = (slug, contactData) => {
-  return fetch(`${agendasBaseUrl}/${slug}/contacts`, {
-    method: "POST",
-    body: JSON.stringify(contactData),
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error("Failed to create contact");
-      return response.json();
-    })
-    .catch((error) =>
-      console.error(`Error fetching create contact ${slug} agenda : `, error),
-    );
-};
-
-// Delete agenda contact
-export const deleteAgendaContact = (slug, contactId) => {
-  return fetch(`${agendasBaseUrl}/${slug}/contacts/${contactId}`, {
-    method: "DELETE",
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error("Failed to delete contact");
-      return response.json();
-    })
-    .catch((error) =>
-      console.error(`Error fetching deleting contact ${slug} agenda : `, error),
-    );
-};
-
-// Update agenda contact
-export const updateAgendaContact = (slug, contactId, contactData) => {
-  return fetch(`${agendasBaseUrl}/${slug}/contacts/${contactId}`, {
-    method: "PUT",
-    body: JSON.stringify(contactData),
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error("Failed to update contact");
-      return response.json();
-    })
-    .catch((error) =>
-      console.error(`Error fetching updating contact ${slug} agenda : `, error),
-    );
+    .catch((error) => {
+      return error;
+    });
 };
