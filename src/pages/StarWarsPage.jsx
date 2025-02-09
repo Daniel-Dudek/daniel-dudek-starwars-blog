@@ -1,16 +1,16 @@
 import { Container } from "react-bootstrap";
 import HomePageFooter from "../components/HomePageFooter";
-import { Films } from "../components/lists/FilmList";
-import { Characters } from "../components/lists/CharactersList";
 import { Planets } from "../components/lists/PlanetsList";
+import { Characters } from "../components/lists/CharactersList";
+import { Species } from "../components/lists/SpeciesList";
 
 const StarWarsPage = () => {
   return (
     <>
       <Container>
-        <Films />
-        <Characters />
         <Planets />
+        <Characters />
+        <Species />
       </Container>
       <HomePageFooter />
     </>

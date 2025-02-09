@@ -1,17 +1,16 @@
 // Base URL for the API endpoints
-export const baseUrl = "https://www.swapi.tech/api";
+export const baseUrl =
+  "https://jubilant-train-q66w49767x5f44xv-3000.app.github.dev/";
 
 // Specific base URL for all resources
-export const films = "/films/";
-export const characters = "/people/";
-export const planets = "/planets/";
-export const species = "/species/";
-export const starships = "/starships/";
-export const vehicles = "/vehicles/";
+export const planetsUrl = "/planets";
+export const charactersUrl = "/people";
+export const speciesUrl = "/species";
+export const usersUrl = "/users";
 
 // Function to get resources from star wars API
-export const fetchWrapper = (input, init) => {
-  return fetch(input, init)
+export const fetchWrapper = async (input, init) => {
+  return await fetch(input, init)
     .then((response) => {
       if (response.ok) {
         return response.json();

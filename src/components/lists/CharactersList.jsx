@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { FavoritesContext } from "../context/Favorites";
+import { FavouritesContext } from "../context/Favourites";
 import { getCharacters } from "../../services/api/characters";
 
 import { Row, Col, Card, Button } from "react-bootstrap";
@@ -11,8 +11,8 @@ import { isEmpty } from "lodash";
 
 export const Characters = () => {
   const [characters, setCharacters] = useState([]);
-  const { favorites, addToFavorites, deleteFavorite } =
-    useContext(FavoritesContext);
+  const { favourites, addToFavourites, deleteFavourite } =
+    useContext(FavouritesContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,14 +21,14 @@ export const Characters = () => {
       .catch((error) => console.error("Error fetching characters", error));
   }, []);
 
-  const handleFavoriteToggle = (character) => {
-    const isFavorite = favorites.some(
-      (fav) => fav.id === character.uid && fav.type === "people",
+  const handleFavouriteToggle = (character) => {
+    const isFavourite = favourites.some(
+      (fav) => fav.external_id === character.id && fav.type === "PEOPLE",
     );
-    if (isFavorite) {
-      deleteFavorite(character.uid, "people");
+    if (isFavourite) {
+      deleteFavourite(character.id, "PEOPLE");
     } else {
-      addToFavorites(character.uid, character.name, "people");
+      addToFavourites(character.id, character.name, "PEOPLE");
     }
   };
 
@@ -42,7 +42,7 @@ export const Characters = () => {
       <Row>
         {!isEmpty(characters) &&
           characters.map((character) => (
-            <Col key={character.uid} md={4} className="mb-4">
+            <Col key={character.id} md={4} className="mb-4">
               <Card>
                 <Card.Img
                   variant="top"
@@ -51,24 +51,28 @@ export const Characters = () => {
                 />
                 <Card.Body>
                   <Card.Title>{character.name}</Card.Title>
+                  <Card.Text>
+                    <strong>Description:</strong> {character.description}
+                  </Card.Text>
                   <div className="d-flex justify-content-between align-items-center">
                     <Button
                       variant="primary"
-                      onClick={() => handleLearnMore(character.uid)}
+                      onClick={() => handleLearnMore(character.id)}
                     >
                       Learn More
                     </Button>
                     <FontAwesomeIcon
                       icon={
-                        favorites.some(
+                        favourites.some(
                           (fav) =>
-                            fav.id === character.uid && fav.type === "people",
+                            fav.external_id === character.id &&
+                            fav.type === "PEOPLE",
                         )
                           ? solidHeart
                           : regularHeart
                       }
                       size="lg"
-                      onClick={() => handleFavoriteToggle(character)}
+                      onClick={() => handleFavouriteToggle(character)}
                     />
                   </div>
                 </Card.Body>

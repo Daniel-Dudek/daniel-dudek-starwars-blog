@@ -3,9 +3,9 @@ import AboutPage from "../../pages/AboutPage";
 import ServicesPage from "../../pages/ServicesPage";
 import ContactPage from "../../pages/ContactPage";
 import StarWarsPage from "../../pages/StarWarsPage";
-import { FilmPage } from "../../pages/FilmPage";
-import { CharacterPage } from "../../pages/CharacterPage";
 import { PlanetPage } from "../../pages/PlanetPage";
+import { CharacterPage } from "../../pages/CharacterPage";
+import { SpeciePage } from "../../pages/SpeciePage";
 
 export const routeConfig = [
   {
@@ -19,9 +19,9 @@ export const routeConfig = [
     path: "/star-wars",
   },
   {
-    element: <FilmPage />,
-    name: "Film",
-    path: "/star-wars/films/:filmId",
+    element: <PlanetPage />,
+    name: "Planet",
+    path: "/star-wars/planets/:planetId",
   },
   {
     element: <CharacterPage />,
@@ -29,9 +29,9 @@ export const routeConfig = [
     path: "/star-wars/people/:peopleId",
   },
   {
-    element: <PlanetPage />,
-    name: "Planet",
-    path: "/star-wars/planets/:planetId",
+    element: <SpeciePage />,
+    name: "Specie",
+    path: "/star-wars/species/:specieId",
   },
   {
     element: <AboutPage />,

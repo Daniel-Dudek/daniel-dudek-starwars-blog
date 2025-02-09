@@ -1,20 +1,20 @@
-import { baseUrl, fetchWrapper, characters } from "../api";
+import { baseUrl, fetchWrapper, charactersUrl } from "../api";
 
 // Specific base URL for characters
-const charactersEndPoint = `${baseUrl}${characters}`;
+const charactersEndPoint = `${baseUrl}${charactersUrl}`;
 
-export const getCharacters = () => {
-  return fetchWrapper(charactersEndPoint, {
+export const getCharacters = async () => {
+  return await fetchWrapper(charactersEndPoint, {
     method: "GET",
   }).then((data) => {
-    return data.results;
+    return data;
   });
 };
 
-export const getCharacter = (characterId) => {
-  return fetchWrapper(`${charactersEndPoint}${characterId}`, {
+export const getCharacter = async (characterId) => {
+  return await fetchWrapper(`${charactersEndPoint}/${characterId}`, {
     method: "GET",
   }).then((data) => {
-    return data.result;
+    return data;
   });
 };

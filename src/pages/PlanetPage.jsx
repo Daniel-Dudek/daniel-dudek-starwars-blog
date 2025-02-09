@@ -51,29 +51,10 @@ export const PlanetPage = () => {
             >
               <Card.Body style={{ flex: "1 1 auto" }}>
                 <Card.Title className="text-center mb-4">
-                  <h1>{planet.properties.name}</h1>
+                  <h1>{planet.name}</h1>
                 </Card.Title>
                 <Card.Text>
-                  <strong>Diameter:</strong> {planet.properties.diameter}
-                  <br />
-                  <strong>Rotation period:</strong>{" "}
-                  {planet.properties.rotation_period}
-                  <br />
-                  <strong>Orbital period:</strong>{" "}
-                  {planet.properties.orbital_period}
-                  <br />
-                  <strong>Gravity:</strong> {planet.properties.gravity}
-                  <br />
-                  <strong>Population:</strong> {planet.properties.population}
-                  <br />
-                  <strong>Climate:</strong> {planet.properties.climate}
-                  <br />
-                  <strong>Terrain:</strong> {planet.properties.terrain}
-                </Card.Text>
-                <Card.Text className="mt-4" style={{ whiteSpace: "pre-wrap" }}>
-                  <strong>Description:</strong>
-                  <br />
-                  {planet.description}
+                  <strong>Gravity:</strong> {planet.gravity}
                 </Card.Text>
               </Card.Body>
               <Card.Footer className="text-center">

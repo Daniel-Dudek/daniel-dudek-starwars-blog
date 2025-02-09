@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { FavoritesContext } from "../components/context/Favorites";
+import { FavouritesContext } from "../components/context/Favourites";
 import { NavLink } from "react-router";
 import { Badge, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 const HomePageHeader = () => {
-  const { favorites, deleteFavorite } = useContext(FavoritesContext);
+  const { favourites, deleteFavourite } = useContext(FavouritesContext);
 
   return (
     <Navbar
@@ -38,28 +38,30 @@ const HomePageHeader = () => {
             <Nav.Link as={NavLink} to="/contact" end>
               Contact
             </Nav.Link>
-            {favorites.length > 0 && (
+            {favourites.length > 0 && (
               <NavDropdown
-                title="Favorites"
-                id="favorites-dropdown"
+                title="Favourites"
+                id="favourites-dropdown"
                 align="end"
               >
-                {favorites.map((favorite) => (
+                {favourites.map((favourite) => (
                   <NavDropdown.Item
-                    key={`${favorite.type}${favorite.id}`}
+                    key={`${favourite.type}${favourite.id}`}
                     className="d-flex justify-content-between align-items-center"
                   >
                     <NavLink
-                      to={`/star-wars/${favorite.type}/${favorite.id}`}
+                      to={`/star-wars/${favourite.type}/${favourite.id}`}
                       className="text-decoration-none"
                     >
-                      {favorite.name}
+                      {favourite.name}
                     </NavLink>
                     <Badge
                       bg="danger"
                       className="ms-2"
                       style={{ cursor: "pointer" }}
-                      onClick={() => deleteFavorite(favorite.id, favorite.type)}
+                      onClick={() =>
+                        deleteFavourite(favourite.external_id, favourite.type)
+                      }
                     >
                       X
                     </Badge>

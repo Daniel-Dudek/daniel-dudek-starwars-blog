@@ -51,15 +51,8 @@ export const CharacterPage = () => {
             >
               <Card.Body style={{ flex: "1 1 auto" }}>
                 <Card.Title className="text-center mb-4">
-                  <h1>{people.properties.name}</h1>
+                  <h1>{people.name}</h1>
                 </Card.Title>
-                <Card.Text>
-                  <strong>Hair color:</strong> {people.properties.hair_color}
-                  <br />
-                  <strong>Skin color:</strong> {people.properties.skin_color}
-                  <br />
-                  <strong>Eyes color:</strong> {people.properties.eye_color}
-                </Card.Text>
                 <Card.Text className="mt-4" style={{ whiteSpace: "pre-wrap" }}>
                   <strong>Description:</strong>
                   <br />
