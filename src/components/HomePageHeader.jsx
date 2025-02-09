@@ -50,7 +50,7 @@ const HomePageHeader = () => {
                     className="d-flex justify-content-between align-items-center"
                   >
                     <NavLink
-                      to={`/star-wars/${favourite.type}/${favourite.id}`}
+                      to={`/star-wars/${favourite.type}/${favourite.external_id}`}
                       className="text-decoration-none"
                     >
                       {favourite.name}
